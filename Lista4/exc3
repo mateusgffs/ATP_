@@ -1,1 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Informe o número de conjuntos de valores: ");
+        int N = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < N; i++)
+        {
+            Console.WriteLine($"Conjunto {i + 1}:");
+            Console.Write("Valor 1: ");
+            int valor1 = int.Parse(Console.ReadLine());
+            Console.Write("Valor 2: ");
+            int valor2 = int.Parse(Console.ReadLine());
+            Console.Write("Valor 3: ");
+            int valor3 = int.Parse(Console.ReadLine());
+
+            ExibirEmOrdemCrescente(valor1, valor2, valor3);
+        }
+    }
+
+    static void ExibirEmOrdemCrescente(int v1, int v2, int v3)
+    {
+        int[] valores = { v1, v2, v3 };
+        Array.Sort(valores);
+        Console.WriteLine($"Valores em ordem crescente: {valores[0]}, {valores[1]}, {valores[2]}");
+    }
+}
 
