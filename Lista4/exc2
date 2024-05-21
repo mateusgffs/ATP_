@@ -1,1 +1,41 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        ColetarDados();
+    }
+
+    static void ColetarDados()
+    {
+        int numPessoas = 0;
+        double salarioTotal = 0;
+
+        while (true)
+        {
+            Console.Write("Digite o salário (ou -1 para sair): ");
+            double salario = double.Parse(Console.ReadLine());
+
+            if (salario == -1)
+                break;
+
+            Console.Write("Digite o número de filhos: ");
+            int filhos = int.Parse(Console.ReadLine());
+
+            numPessoas++;
+            salarioTotal += salario;
+        }
+
+        if (numPessoas > 0)
+        {
+            double mediaSalario = salarioTotal / numPessoas;
+            Console.WriteLine($"Média de salário: {mediaSalario:F2}");
+        }
+        else
+        {
+            Console.WriteLine("Nenhuma pessoa foi registrada.");
+        }
+    }
+}
 
