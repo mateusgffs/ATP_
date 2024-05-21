@@ -1,1 +1,31 @@
+using System;
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Informe o número de valores a serem lidos: ");
+        int N = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < N; i++)
+        {
+            Console.Write($"Digite o valor {i + 1}: ");
+            int valor = int.Parse(Console.ReadLine());
+
+            bool ehPositivo = VerificarPositivo(valor);
+            if (ehPositivo)
+            {
+                Console.WriteLine("O valor é positivo.");
+            }
+            else
+            {
+                Console.WriteLine("O valor é negativo.");
+            }
+        }
+    }
+
+    static bool VerificarPositivo(int valor)
+    {
+        return valor >= 0;
+    }
+}
