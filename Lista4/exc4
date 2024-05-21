@@ -1,1 +1,46 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.Write("Digite o comprimento do lado X (ou -1 para sair): ");
+            double X = double.Parse(Console.ReadLine());
+            if (X == -1)
+                break;
+
+            Console.Write("Digite o comprimento do lado Y: ");
+            double Y = double.Parse(Console.ReadLine());
+            Console.Write("Digite o comprimento do lado Z: ");
+            double Z = double.Parse(Console.ReadLine());
+
+            VerificarTriangulo(X, Y, Z);
+        }
+    }
+
+    static void VerificarTriangulo(double X, double Y, double Z)
+    {
+        if (X < Y + Z && Y < X + Z && Z < X + Y)
+        {
+            if (X == Y && Y == Z)
+            {
+                Console.WriteLine("Triângulo Equilátero");
+            }
+            else if (X == Y || Y == Z || X == Z)
+            {
+                Console.WriteLine("Triângulo Isósceles");
+            }
+            else
+            {
+                Console.WriteLine("Triângulo Escaleno");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Os valores não formam um triângulo");
+        }
+    }
+}
 
