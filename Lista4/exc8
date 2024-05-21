@@ -1,1 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Digite um valor inteiro e positivo N: ");
+        int N = int.Parse(Console.ReadLine());
+
+        double resultado = CalcularS(N);
+        Console.WriteLine($"O valor de S para N = {N} é: {resultado:F2}");
+    }
+
+    static double CalcularS(int N)
+    {
+        double S = 0;
+
+        for (int i = 1; i <= N; i++)
+        {
+            S += (Math.Pow(i, 2) + 1) / (i + 3);
+        }
+
+        return S;
+    }
+}
 
