@@ -1,1 +1,41 @@
+using System;
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Digite o número de alunos: ");
+        int numAlunos = int.Parse(Console.ReadLine());
+
+        double mediaAprovados = CalcularMediaAprovados(numAlunos);
+        Console.WriteLine($"A média das notas dos alunos aprovados é: {mediaAprovados:F2}");
+    }
+
+    static double CalcularMediaAprovados(int numAlunos)
+    {
+        double somaNotas = 0;
+        int contadorAprovados = 0;
+
+        for (int i = 0; i < numAlunos; i++)
+        {
+            Console.Write($"Digite a nota do aluno {i + 1}: ");
+            double nota = double.Parse(Console.ReadLine());
+
+            if (nota >= 6)
+            {
+                somaNotas += nota;
+                contadorAprovados++;
+            }
+        }
+
+        if (contadorAprovados > 0)
+        {
+            return somaNotas / contadorAprovados;
+        }
+        else
+        {
+            Console.WriteLine("Nenhum aluno foi aprovado.");
+            return 0;
+        }
+    }
+}
