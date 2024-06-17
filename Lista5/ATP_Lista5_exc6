@@ -1,1 +1,48 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double[] temperaturas = new double[31];
+        PreencherTemperaturas(temperaturas);
+
+        double menorTemperatura = temperaturas[0];
+        double maiorTemperatura = temperaturas[0];
+        double somaTemperaturas = 0;
+
+        // Calcula a menor, a maior temperatura e a soma das temperaturas
+        foreach (double temp in temperaturas)
+        {
+            if (temp < menorTemperatura) menorTemperatura = temp;
+            if (temp > maiorTemperatura) maiorTemperatura = temp;
+            somaTemperaturas += temp;
+        }
+
+        double mediaTemperatura = somaTemperaturas / temperaturas.Length;
+        int diasAbaixoDaMedia = 0;
+
+        // Conta quantos dias tiveram temperatura abaixo da média
+        foreach (double temp in temperaturas)
+        {
+            if (temp < mediaTemperatura) diasAbaixoDaMedia++;
+        }
+
+        // Exibe os resultados
+        Console.WriteLine($"Menor temperatura: {menorTemperatura}°C");
+        Console.WriteLine($"Maior temperatura: {maiorTemperatura}°C");
+        Console.WriteLine($"Temperatura média: {mediaTemperatura:F2}°C");
+        Console.WriteLine($"Dias com temperatura abaixo da média: {diasAbaixoDaMedia}");
+    }
+
+    static void PreencherTemperaturas(double[] temperaturas)
+    {
+        Console.WriteLine("Insira as temperaturas de cada dia de outubro:");
+        for (int i = 0; i < temperaturas.Length; i++)
+        {
+            Console.Write($"Dia {i + 1}: ");
+            temperaturas[i] = double.Parse(Console.ReadLine());
+        }
+    }
+}
 
