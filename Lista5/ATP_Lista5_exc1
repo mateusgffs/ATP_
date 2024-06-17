@@ -1,1 +1,32 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] N = new int[20];
+        Random rand = new Random();
+
+        // Preenche o vetor com valores aleatórios
+        for (int i = 0; i < N.Length; i++)
+        {
+            N[i] = rand.Next(1, 100);
+        }
+
+        int menorElemento = N[0];
+        int posicao = 0;
+
+        // Encontra o menor elemento e sua posição
+        for (int i = 1; i < N.Length; i++)
+        {
+            if (N[i] < menorElemento)
+            {
+                menorElemento = N[i];
+                posicao = i;
+            }
+        }
+
+        Console.WriteLine($"O menor elemento de N é {menorElemento} e sua posição dentro do vetor é: {posicao}");
+    }
+}
 
