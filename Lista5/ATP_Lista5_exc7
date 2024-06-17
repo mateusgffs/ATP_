@@ -1,1 +1,83 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[,] matriz = new int[5, 5];
+        PreencherMatriz(matriz);
+
+        Console.WriteLine($"Soma da linha 4: {SomaLinha(matriz, 4)}");
+        Console.WriteLine($"Soma da coluna 2: {SomaColuna(matriz, 2)}");
+        Console.WriteLine($"Soma da diagonal principal: {SomaDiagonalPrincipal(matriz)}");
+        Console.WriteLine($"Soma da diagonal secundária: {SomaDiagonalSecundaria(matriz)}");
+        Console.WriteLine($"Soma de todos os elementos: {SomaTodosElementos(matriz)}");
+    }
+
+    static void PreencherMatriz(int[,] matriz)
+    {
+        Console.WriteLine("Insira os valores para a matriz 5x5:");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                Console.Write($"M[{i},{j}] = ");
+                matriz[i, j] = int.Parse(Console.ReadLine());
+            }
+        }
+    }
+
+    static int SomaLinha(int[,] matriz, int linha)
+    {
+        int soma = 0;
+        for (int j = 0; j < 5; j++)
+        {
+            soma += matriz[linha, j];
+        }
+        return soma;
+    }
+
+    static int SomaColuna(int[,] matriz, int coluna)
+    {
+        int soma = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            soma += matriz[i, coluna];
+        }
+        return soma;
+    }
+
+    static int SomaDiagonalPrincipal(int[,] matriz)
+    {
+        int soma = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            soma += matriz[i, i];
+        }
+        return soma;
+    }
+
+    static int SomaDiagonalSecundaria(int[,] matriz)
+    {
+        int soma = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            soma += matriz[i, 4 - i];
+        }
+        return soma;
+    }
+
+    static int SomaTodosElementos(int[,] matriz)
+    {
+        int soma = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                soma += matriz[i, j];
+            }
+        }
+        return soma;
+    }
+}
 
