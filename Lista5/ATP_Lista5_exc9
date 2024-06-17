@@ -1,1 +1,85 @@
+using System;
 
+class Program
+{
+    // Procedimento para preencher uma matriz 4x6 com valores aleatórios
+    static void PreencherMatriz4x6(int[,] matriz)
+    {
+        Random rand = new Random();
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                matriz[i, j] = rand.Next(1, 100); // Valores aleatórios entre 1 e 99
+            }
+        }
+    }
+
+    // Função para calcular a soma de duas matrizes 4x6
+    static int[,] SomaMatrizes(int[,] A, int[,] B)
+    {
+        int[,] S = new int[4, 6];
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                S[i, j] = A[i, j] + B[i, j];
+            }
+        }
+        return S;
+    }
+
+    // Função para calcular a diferença de duas matrizes 4x6
+    static int[,] DiferencaMatrizes(int[,] A, int[,] B)
+    {
+        int[,] D = new int[4, 6];
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                D[i, j] = A[i, j] - B[i, j];
+            }
+        }
+        return D;
+    }
+
+    // Procedimento para imprimir uma matriz
+    static void ImprimirMatriz(int[,] matriz)
+    {
+        int linhas = matriz.GetLength(0);
+        int colunas = matriz.GetLength(1);
+        for (int i = 0; i < linhas; i++)
+        {
+            for (int j = 0; j < colunas; j++)
+            {
+                Console.Write(matriz[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    static void Main()
+    {
+        // Declaração e preenchimento das matrizes A e B
+        int[,] A = new int[4, 6];
+        int[,] B = new int[4, 6];
+
+        PreencherMatriz4x6(A);
+        PreencherMatriz4x6(B);
+
+        Console.WriteLine("Matriz A:");
+        ImprimirMatriz(A);
+        Console.WriteLine("Matriz B:");
+        ImprimirMatriz(B);
+
+        // Cálculo e impressão da soma das matrizes
+        int[,] S = SomaMatrizes(A, B);
+        Console.WriteLine("Matriz S (Soma de A e B):");
+        ImprimirMatriz(S);
+
+        // Cálculo e impressão da diferença das matrizes
+        int[,] D = DiferencaMatrizes(A, B);
+        Console.WriteLine("Matriz D (Diferença de A e B):");
+        ImprimirMatriz(D);
+    }
+}
