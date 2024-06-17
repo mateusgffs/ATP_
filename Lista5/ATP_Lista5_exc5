@@ -1,1 +1,49 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numerosSorteados = SortearNumeros(); // Sorteia três números
+        bool acertou = false;
+
+        // Loop até o usuário acertar um dos números sorteados
+        while (!acertou)
+        {
+            Console.WriteLine("Tente acertar um dos números sorteados (entre 10 e 50):");
+            int tentativa = int.Parse(Console.ReadLine());
+
+            // Verifica se a tentativa é um dos números sorteados
+            foreach (int numero in numerosSorteados)
+            {
+                if (tentativa == numero)
+                {
+                    Console.WriteLine("Você acertou!");
+                    acertou = true;
+                    break;
+                }
+            }
+
+            if (!acertou)
+            {
+                Console.WriteLine("Tente novamente!");
+            }
+        }
+    }
+
+    static int[] SortearNumeros()
+    {
+        Random rand = new Random();
+        int[] numeros = new int[3];
+
+        // Sorteia três números entre 10 e 50
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            numeros[i] = rand.Next(10, 51); // Números entre 10 e 50
+            Console.WriteLine($"Número sorteado: {numeros[i]}");
+        }
+
+        return numeros;
+    }
+}
 
