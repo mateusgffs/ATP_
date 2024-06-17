@@ -1,1 +1,52 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] X = new int[10];
+        int[] Y = new int[10];
+
+        // Preenche os vetores X e Y com valores inseridos pelo usuário
+        Console.WriteLine("Insira 10 números inteiros para o vetor X:");
+        PreencherVetor(X);
+        Console.WriteLine("Insira 10 números inteiros para o vetor Y:");
+        PreencherVetor(Y);
+
+        // Intercala os vetores X e Y
+        int[] intercalado = IntercalarVetores(X, Y);
+
+        // Exibe o vetor intercalado
+        ExibirVetor(intercalado);
+    }
+
+    static void PreencherVetor(int[] vetor)
+    {
+        for (int i = 0; i < vetor.Length; i++)
+        {
+            Console.Write($"vetor[{i}] = ");
+            vetor[i] = int.Parse(Console.ReadLine());
+        }
+    }
+
+    static int[] IntercalarVetores(int[] X, int[] Y)
+    {
+        int[] intercalado = new int[X.Length + Y.Length];
+        for (int i = 0, j = 0; i < X.Length; i++, j += 2)
+        {
+            intercalado[j] = X[i]; // Posições ímpares recebem elementos de X
+            intercalado[j + 1] = Y[i]; // Posições pares recebem elementos de Y
+        }
+        return intercalado;
+    }
+
+    static void ExibirVetor(int[] vetor)
+    {
+        Console.WriteLine("Vetor intercalado:");
+        foreach (int valor in vetor)
+        {
+            Console.WriteLine(valor);
+        }
+    }
+}
 
