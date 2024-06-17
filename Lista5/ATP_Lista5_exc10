@@ -1,1 +1,106 @@
+using System;
 
+class Program
+{
+    // Procedimento para preencher uma matriz 10x10 com valores aleatórios
+    static void PreencherMatriz10x10(int[,] matriz)
+    {
+        Random rand = new Random();
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                matriz[i, j] = rand.Next(1, 100); // Valores aleatórios entre 1 e 99
+            }
+        }
+    }
+
+    // Procedimento para imprimir uma matriz de tamanho arbitrário
+    static void ImprimirMatriz(int[,] matriz)
+    {
+        int linhas = matriz.GetLength(0);
+        int colunas = matriz.GetLength(1);
+        for (int i = 0; i < linhas; i++)
+        {
+            for (int j = 0; j < colunas; j++)
+            {
+                Console.Write(matriz[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    // Procedimento para trocar a linha 2 com a linha 8 de uma matriz 10x10
+    static void TrocarLinha2ComLinha8(int[,] matriz)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            int temp = matriz[1, j];
+            matriz[1, j] = matriz[7, j];
+            matriz[7, j] = temp;
+        }
+    }
+
+    // Procedimento para trocar a coluna 4 com a coluna 10 de uma matriz 10x10
+    static void TrocarColuna4ComColuna10(int[,] matriz)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            int temp = matriz[i, 3];
+            matriz[i, 3] = matriz[i, 9];
+            matriz[i, 9] = temp;
+        }
+    }
+
+    // Procedimento para trocar a diagonal principal com a diagonal secundária de uma matriz 10x10
+    static void TrocarDiagonais(int[,] matriz)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            int temp = matriz[i, i];
+            matriz[i, i] = matriz[i, 9 - i];
+            matriz[i, 9 - i] = temp;
+        }
+    }
+
+    // Procedimento para trocar a linha 5 com a coluna 10 de uma matriz 10x10
+    static void TrocarLinha5ComColuna10(int[,] matriz)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            int temp = matriz[4, i];
+            matriz[4, i] = matriz[i, 9];
+            matriz[i, 9] = temp;
+        }
+    }
+
+    static void Main()
+    {
+        // Declaração e preenchimento da matriz 10x10
+        int[,] M = new int[10, 10];
+        PreencherMatriz10x10(M);
+
+        Console.WriteLine("Matriz M original:");
+        ImprimirMatriz(M);
+
+        // Troca a linha 2 com a linha 8
+        TrocarLinha2ComLinha8(M);
+        Console.WriteLine("Matriz M após troca da linha 2 com a linha 8:");
+        ImprimirMatriz(M);
+
+        // Troca a coluna 4 com a coluna 10
+        TrocarColuna4ComColuna10(M);
+        Console.WriteLine("Matriz M após troca da coluna 4 com a coluna 10:");
+        ImprimirMatriz(M);
+
+        // Troca a diagonal principal com a diagonal secundária
+        TrocarDiagonais(M);
+        Console.WriteLine("Matriz M após troca das diagonais:");
+        ImprimirMatriz(M);
+
+        // Troca a linha 5 com a coluna 10
+        TrocarLinha5ComColuna10(M);
+        Console.WriteLine("Matriz M após troca da linha 5 com a coluna 10:");
+        ImprimirMatriz(M);
+    }
+}
