@@ -1,1 +1,51 @@
+using System;
+using System.Collections.Generic;
 
+class Program
+{
+    static void Main()
+    {
+        int[] X = new int[10];
+
+        // Preenche o vetor X com valores inseridos pelo usuário
+        PreencherVetor(X);
+
+        // Copia os valores negativos para um novo vetor
+        int[] negativos = CopiarNegativos(X);
+
+        // Exibe o vetor de negativos
+        ExibirVetor(negativos);
+    }
+
+    static void PreencherVetor(int[] X)
+    {
+        Console.WriteLine("Insira 10 números inteiros (podem ser negativos):");
+        for (int i = 0; i < X.Length; i++)
+        {
+            Console.Write($"X[{i}] = ");
+            X[i] = int.Parse(Console.ReadLine());
+        }
+    }
+
+    static int[] CopiarNegativos(int[] X)
+    {
+        List<int> listaNegativos = new List<int>();
+        foreach (int valor in X)
+        {
+            if (valor < 0)
+            {
+                listaNegativos.Add(valor); // Adiciona os valores negativos à lista
+            }
+        }
+        return listaNegativos.ToArray(); // Converte a lista para um vetor
+    }
+
+    static void ExibirVetor(int[] vetor)
+    {
+        Console.WriteLine("Vetor de negativos:");
+        foreach (int valor in vetor)
+        {
+            Console.WriteLine(valor);
+        }
+    }
+}
