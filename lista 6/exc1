@@ -1,1 +1,22 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Digite uma frase:");
+        string frase = Console.ReadLine();
+
+        int espacosEmBranco = 0;
+        foreach (char c in frase)
+        {
+            if (c == ' ')
+            {
+                espacosEmBranco++;
+            }
+        }
+
+        Console.WriteLine($"A frase contém {espacosEmBranco} espaços em branco.");
+    }
+}
 
