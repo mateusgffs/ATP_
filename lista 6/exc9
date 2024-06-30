@@ -1,1 +1,45 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        while (true)
+        {
+            Console.WriteLine("Escolha uma opção:");
+            Console.WriteLine("1 - Inserir dados de aluno");
+            Console.WriteLine("2 - Ler dados de alunos");
+            Console.WriteLine("3 - Sair");
+
+            int opcao = int.Parse(Console.ReadLine());
+
+            if (opcao == 1)
+            {
+                Console.WriteLine("Digite a matrícula:");
+                string matricula = Console.ReadLine();
+
+                Console.WriteLine("Digite o telefone:");
+                string telefone = Console.ReadLine();
+
+                using (StreamWriter writer = new StreamWriter("alunos.txt", true))
+                {
+                    writer.WriteLine($"{matricula},{telefone}");
+                }
+            }
+            else if (opcao == 2)
+            {
+                string[] linhas = File.ReadAllLines("alunos.txt");
+                foreach (string linha in linhas)
+                {
+                    Console.WriteLine(linha);
+                }
+            }
+            else if (opcao == 3)
+            {
+                break;
+            }
+        }
+    }
+}
 
