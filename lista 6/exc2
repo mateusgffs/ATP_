@@ -1,1 +1,22 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Digite uma frase:");
+        string frase = Console.ReadLine();
+
+        string semVogais = "";
+        foreach (char c in frase)
+        {
+            if (!"aeiouAEIOU".Contains(c))
+            {
+                semVogais += c;
+            }
+        }
+
+        Console.WriteLine("Frase sem vogais: " + semVogais);
+    }
+}
 
