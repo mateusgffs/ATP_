@@ -1,1 +1,27 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Digite uma frase:");
+        string frase = Console.ReadLine();
+
+        string fraseCodificada = "";
+        foreach (char c in frase)
+        {
+            if (char.IsLetter(c))
+            {
+                char offset = char.IsUpper(c) ? 'A' : 'a';
+                fraseCodificada += (char)((c - offset + 3) % 26 + offset);
+            }
+            else
+            {
+                fraseCodificada += c;
+            }
+        }
+
+        Console.WriteLine("Frase codificada: " + fraseCodificada);
+    }
+}
 
