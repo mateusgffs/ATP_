@@ -1,1 +1,20 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Digite o caminho do arquivo:");
+        string caminhoArquivo = Console.ReadLine();
+
+        string[] linhas = File.ReadAllLines(caminhoArquivo);
+        foreach (string linha in linhas)
+        {
+            Console.WriteLine(linha);
+        }
+
+        Console.WriteLine($"O arquivo contém {linhas.Length} linhas.");
+    }
+}
 
