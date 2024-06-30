@@ -1,1 +1,24 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Digite o caminho do arquivo:");
+        string caminhoArquivo = Console.ReadLine();
+
+        int contadorA = 0;
+        string conteudo = File.ReadAllText(caminhoArquivo);
+        foreach (char c in conteudo)
+        {
+            if (c == 'a' || c == 'A')
+            {
+                contadorA++;
+            }
+        }
+
+        Console.WriteLine($"O arquivo contém {contadorA} caracteres 'a'.");
+    }
+}
 
