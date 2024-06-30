@@ -1,1 +1,25 @@
+using System;
+using System.IO;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Digite o caminho do arquivo:");
+        string caminhoArquivo = Console.ReadLine();
+
+        double[] valores = File.ReadAllLines(caminhoArquivo)
+                               .Select(double.Parse)
+                               .ToArray();
+
+        double maximo = valores.Max();
+        double minimo = valores.Min();
+        double media = valores.Average();
+
+        Console.WriteLine($"Valor máximo: {maximo}");
+        Console.WriteLine($"Valor mínimo: {minimo}");
+        Console.WriteLine($"Média: {media}");
+    }
+}
 
